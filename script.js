@@ -1,9 +1,9 @@
 const talks = [
   {
     date: "August 28",
-    speaker: "Zhongjing Wei, Apurva, and Xijia Che",
+    speaker: "Zhongjing Wei, Apurva Virkud, and Xijia Che",
     format: "In person",
-    details: "Student reports: Zhongjing Wei (10-minute USENIX report), Apurva (12-minute USENIX report), and Xijia Che (20-minute internship talk)."
+    details: "Student reports: Zhongjing Wei (10-minute USENIX report), Apurva Virkud (12-minute USENIX report), and Xijia Che (20-minute internship talk)."
   },
   {
     date: "September 4",
