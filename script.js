@@ -29,8 +29,7 @@ const talks = [
   },
   {
     date: "October 2",
-    speaker: "Ertem Nusret Tas",
-    email: "nusret@stanford.edu",
+    speaker: "To be announced",
     format: "To be announced",
     details: "Talk details forthcoming."
   },
