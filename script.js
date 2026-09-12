@@ -20,8 +20,10 @@ const talks = [
     date: "September 18",
     speaker: "Wenhao Zhang",
     speakerUrl: "https://wzhang.cc/",
-    format: "To be announced",
-    details: "Northwestern University · Advised by Xiao Wang."
+    format: "In person",
+    title: "BitGC Made (More) Efficient",
+    abstract: "This talk presents our recent progress on one-bit-per-gate garbled circuits, including a set of optimizations that substantially improve both theoretical and practical efficiency. Garbled circuits with one-bit-per-gate communication were recently introduced by Liu et al. (BitGC, Eurocrypt 2025), Meyer et al. (Crypto 2025), and Ishai et al. (Crypto 2025). These works focus primarily on theoretical communication complexity, leaving open questions about practical computational efficiency. To address this gap, we first eliminate key barriers to enable SIMD support for BitGC, leading to a substantial speedup in its homomorphic operations. Second, we demonstrate that XOR gates can be garbled without any communication, improving both efficiency and simplicity. Finally, we present a computationally efficient garbling scheme that requires zero communication for XOR gates and only 5 bits per AND gate. When applied to an AES-128 circuit, our fastest garbling scheme generates a garbled circuit of just 4 KB in 2 minutes on a single CPU core. This talk is based on joint work with Hanlin Liu, Kang Yang, Wen-jie Lu, Yu Yu, Xiao Wang, and Chenkai Weng.",
+    bio: "Wenhao Zhang is a Ph.D. student in Computer Science at Northwestern University, advised by Xiao Wang. His research interests lie primarily in applied cryptography, with a focus on secure multiparty computation, fully homomorphic encryption, and hardware-accelerated cryptography."
   },
   {
     date: "September 25",
@@ -70,7 +72,7 @@ const talks = [
     speaker: "Qi Pang",
     email: "qipang@cmu.edu",
     format: "To be announced",
-    details: "Ph.D. candidate in Computer Science at Carnegie Mellon University, advised by Virginia Smith and Wenting Zheng. Her research lies at the intersection of trustworthy machine learning systems and applied cryptography."
+    details: "Ph.D. candidate in Computer Science at Carnegie Mellon University, advised by Virginia Smith and Wenting Zheng. His research lies at the intersection of trustworthy machine learning systems and applied cryptography."
   },
   { date: "November 20", speaker: "No seminar", format: "—", details: "No seminar scheduled." },
   { date: "November 27", speaker: "No seminar", format: "—", details: "Thanksgiving break." },
@@ -121,8 +123,10 @@ talks.forEach((talk) => {
     const slides = document.createElement("a");
     slides.className = "talk-slides";
     slides.href = talk.slidesUrl;
-    slides.textContent = "Slides";
+    slides.textContent = "View slides ↗";
     slides.setAttribute("aria-label", `Slides for ${talk.speaker}’s talk`);
+    slides.target = "_blank";
+    slides.rel = "noopener noreferrer";
     detailsCell.append(slides);
   }
   [["Abstract", talk.abstract], ["Speaker bio", talk.bio]].forEach(([label, text]) => {
