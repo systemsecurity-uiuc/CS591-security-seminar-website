@@ -29,8 +29,14 @@ const talks = [
     date: "September 25",
     speaker: "Mohammad Hassan Ameri Ekhtiarabadi",
     email: "mameriek@purdue.edu",
-    format: "To be announced",
-    details: "Fuzzy password-authenticated key exchange (PAKE), including random robust secret-sharing techniques for efficient Hamming-distance construction."
+    format: "In person",
+    title: "Random Robust Secret Sharing with Perfect Privacy and Its Applications",
+    abstract: [
+      "Secret-sharing schemes allow a dealer to distribute n shares of a secret so that any t shares suffice to reconstruct the secret, while any t−1 shares reveal no information about it. Schemes such as Shamir Secret Sharing satisfy a stronger guarantee called (t−1)-perfect privacy, meaning that the joint distribution of any subset of at most t−1 shares is uniformly distributed over its domain. This strong guarantee is essential for applications such as fuzzy password-authenticated key exchange (fPAKE) and conditional encryption—a recent cryptographic primitive introduced to enable secure, personalized password-typo correction. Unfortunately, Shamir Secret Sharing is not robust: corrupted shares can prevent correct reconstruction or cause reconstruction of an incorrect secret. Existing robust secret-sharing schemes address this issue but necessarily sacrifice perfect privacy. We introduce and construct Random Robust Secret Sharing with Perfect Privacy (RRSS), a new notion that preserves (t−1)-perfect privacy while providing robustness against random share corruptions. In our schemes, the secret is recovered with high probability even if an arbitrary subset of up to n−t shares is independently corrupted at random.",
+      "We demonstrate the utility of RRSS through two applications. First, we present the first practically efficient fPAKE construction that tolerates Hamming errors. Second, we obtain the first efficient conditional-encryption scheme for arbitrary Hamming distances, improving upon prior work that achieved efficiency only for constant distances. We implement both constructions and empirically demonstrate their practicality."
+    ],
+    paperUrl: "https://eprint.iacr.org/2026/653.pdf",
+    bio: "Mohammad Hassan Ameri is a Ph.D. candidate in Computer Science at Purdue University, advised by Professor Jeremiah Blocki. His research focuses on the theoretical foundations of cryptography, with an emphasis on designing provably secure and efficient cryptographic tools for authentication and privacy. His recent work includes conditional encryption and its applications to password authentication, robust secret sharing with perfect privacy, and memory-hard functions. His work has appeared at ACM CCS, ITCS, and SCN. He expects to graduate in Fall 2026 and is on the 2026–27 job market, seeking postdoctoral opportunities in cryptography and security."
   },
   {
     date: "October 2",
@@ -129,15 +135,29 @@ talks.forEach((talk) => {
     slides.rel = "noopener noreferrer";
     detailsCell.append(slides);
   }
+  if (talk.paperUrl) {
+    const paper = document.createElement("a");
+    paper.className = "talk-paper";
+    paper.href = talk.paperUrl;
+    paper.textContent = "Full version ↗";
+    paper.setAttribute("aria-label", `Full version of ${talk.speaker}’s paper`);
+    paper.target = "_blank";
+    paper.rel = "noopener noreferrer";
+    detailsCell.append(paper);
+  }
   [["Abstract", talk.abstract], ["Speaker bio", talk.bio]].forEach(([label, text]) => {
     if (!text) return;
     const disclosure = document.createElement("details");
     disclosure.className = "talk-disclosure";
     const summary = document.createElement("summary");
     summary.textContent = label;
-    const paragraph = document.createElement("p");
-    paragraph.textContent = text;
-    disclosure.append(summary, paragraph);
+    disclosure.append(summary);
+    const paragraphs = Array.isArray(text) ? text : [text];
+    paragraphs.forEach((content) => {
+      const paragraph = document.createElement("p");
+      paragraph.textContent = content;
+      disclosure.append(paragraph);
+    });
     detailsCell.append(disclosure);
   });
 
