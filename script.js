@@ -84,7 +84,7 @@ const talks = [
   { date: "November 20", speaker: "No seminar", format: "—", details: "No seminar scheduled." },
   { date: "November 27", speaker: "No seminar", format: "—", details: "Thanksgiving break." },
   { date: "December 4", speaker: "Kimberly Ruth", format: "In person", details: "Talk details forthcoming." },
-  { date: "December 11", speaker: "To be announced", format: "To be announced", details: "Talk details forthcoming." }
+  { date: "December 11", speaker: "No seminar", format: "—", details: "No seminar scheduled." }
 ];
 
 const scheduleBody = document.querySelector("#schedule-body");
