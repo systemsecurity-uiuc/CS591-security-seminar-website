@@ -28,6 +28,7 @@ const talks = [
   {
     date: "September 25",
     speaker: "Mohammad Hassan Ameri Ekhtiarabadi",
+    speakerUrl: "https://www.cs.purdue.edu/homes/mameriek/",
     email: "mameriek@purdue.edu",
     format: "In person",
     title: "Random Robust Secret Sharing with Perfect Privacy and Its Applications",
