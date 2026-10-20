@@ -15,7 +15,7 @@ const talks = [
     bio: "Sizhe Chen is a Computer Science Ph.D. candidate at UC Berkeley’s Berkeley AI Research (BAIR), working with Prof. David Wagner. He studies real-world AI security problems with general and principled solutions. He developed StruQ, Meta-SecAlign, SecPO, and SecOPD, the most robust open LLMs against adaptive prompt injection attacks. His research has been supported by selective industry fundings, including NVIDIA Fellowship, Meta-BAIR Commons, and Google-BAIR Commons. Previously, he obtained an M.Eng. and a B.Eng. from Shanghai Jiao Tong University.",
     slidesUrl: "https://github.com/systemsecurity-uiuc/CS591-security-seminar-website/blob/main/slides/2026-09-04-sizhe-chen.pdf"
   },
-  { date: "September 11", speaker: "To be announced", format: "To be announced", details: "Talk details forthcoming." },
+  { date: "September 11", speaker: "No seminar", format: "—", details: "No talk scheduled." },
   {
     date: "September 18",
     speaker: "Wenhao Zhang",
@@ -41,25 +41,49 @@ const talks = [
   },
   {
     date: "October 2",
-    speaker: "To be announced",
-    format: "To be announced",
-    details: "Talk details forthcoming."
+    speaker: "No seminar",
+    format: "—",
+    details: "No talk scheduled."
   },
   {
     date: "October 9",
     speaker: "Phuoc Pham Van Long",
     email: "phuoc_pham_van_long@brown.edu",
     format: "To be announced",
-    details: "Brown University · Advised by Peihan Miao."
+    details: "Brown University · Advised by Peihan Miao.",
+    title: "Mosaic: A Modular Framework for Private Fuzzy Heavy Hitters",
+    abstract: [
+      "We present Mosaic, a modular cryptographic framework for Private Fuzzy Heavy Hitters Detection, a new problem introduced and formalized in this work. In this problem, a service provider aims to identify the most frequent items (i.e., heavy hitters) in private client data without learning any individual client's data. Motivated by real-world applications where inputs are inherently noisy, we consider fuzzy heavy hitters that are close to a sufficiently large number of client data points under a chosen distance metric.",
+      "Mosaic operates in the setting with two non-colluding servers and supports both the known-dictionary setting (where candidate fuzzy heavy hitters are fixed in advance) and the unknown-dictionary setting (where popular items must be discovered). The framework proceeds in two phases: during the upload phase, each client shares an encoding of their input with each server; in the fuzzy matching phase, the servers jointly identify fuzzy heavy hitters without learning any additional information about individual client's data.",
+      "In the upload phase, Mosaic introduces a new cryptographic primitive called Property-Based Function Secret Sharing (PB-FSS), which relaxes the standard notion of FSS (Boyle et al., Eurocrypt 2015) in that the outputs of the FSS evaluations satisfy a certain property, rather than forming exact additive secret shares of the function output. We present a suite of new PB-FSS constructions for the L_inf and L_p distance metrics from lightweight cryptographic techniques. Furthermore, we introduce new methods to prevent malicious client behavior by detecting malformed PB-FSS shares. In the fuzzy matching phase, Mosaic presents two approaches, one involving only the two servers, and one involving an additional trusted dealer to improve efficiency. All parties are assumed to be semi-honest during the fuzzy matching phase.",
+      "Finally, we implement Mosaic and evaluate it using real-world trace data from a ride-sharing service. In one scenario, Mosaic servers discovered over a thousand of the most popular ride start locations among 21 thousand users within 30-90 seconds. On the user side, the protocol requires only lightweight computation (as low as 0.14 millisecond) and communication (as low as 9 KB)."
+    ],
+    bio: "Pham Van Long Phuoc is third-year PhD student at Brown University, doing Cryptography in the group of Professor Peihan Miao. I built Private Set Intersection systems (such as PICS and SA-PSI) that solves new-generation PSI problems that are much closer to practice and industry needs. More broadly, my interests lie in enabling secure and decentralized data analytics in the real world, using Cryptography. I did my Undergraduate study at Nanyang Technological University, where I was fortunate to be guided by Professor Wang Huaxiong and Professor Kiah Han Mao. I worked a lot in Coding Theory, especially the Sequence Reconstruction Problem for Deletion, during my Undergrad."
   },
   {
     date: "October 16",
     speaker: "Zachary DeStefano",
     speakerUrl: "https://www.mathmasterzach.com/",
     format: "To be announced",
-    details: "Talk details forthcoming."
+    title: "Spain: Succinct Proofs for Numerical Computations",
+    abstract: "In a succinct proof protocol, a verifier gets assurance that an untrusted prover executed an agreed computation, without requiring the verifier to re-execute the computation itself. In little more than a decade, this area has undergone a remarkable transformation from theory to implemented systems. This activity is extremely exciting. But there is a catch. To apply succinct proofs, one needs to translate one’s computation to a set of equations, or constraints. The required translation has so far completely blocked systematic support for numerical computations, namely those for which the bulk of the computation uses approximations of real numbers. This work fills that void with the design, implementation, and evaluation of a system called Spain. The starting insight of Spain is that since numerical computations inherently have approximation error, the constraint formalism should likewise allow for approximate satisfiability. Based on this insight, Spain introduces a new proof protocol and new ways to translate computations to constraints, improving over natural baselines by multiple orders of magnitude.",
+    bio: "Zachary DeStefano is a 6th-year Computer Science Ph.D. candidate at New York University, advised by Michael Walfish, doing research at the intersection of Systems, Security, and Formal Methods.",
+    bioUrl: "https://cs.nyu.edu/~zd2131/"
   },
-  { date: "October 23", speaker: "Umar Iqbal", speakerUrl: "https://engineering.washu.edu/faculty/Umar-Iqbal.html", format: "In person", details: "Assistant Professor, Washington University in St. Louis." },
+  {
+    date: "October 23",
+    speaker: "Umar Iqbal",
+    speakerUrl: "https://engineering.washu.edu/faculty/Umar-Iqbal.html",
+    format: "In person",
+    details: "Assistant Professor, Washington University in St. Louis.",
+    title: "Building Reliable Systems from Unreliable Models",
+    abstract: [
+      "Generative AI has enabled a new agentic computing paradigm, in which systems rely on machine learning models to interpret and act on user requests expressed in natural language. While this paradigm promises powerful and flexible automation, systems built on it have serious security, privacy, and safety risks that make them difficult to trust in practice.",
+      "This talk argues that building reliable agentic systems is fundamentally an integrity problem. Rather than assuming that models will behave reliably, we must constrain their inputs, processing, and outputs to keep system behavior consistent with user intent and security policies. Through a series of case studies, I will show how systems-level guardrails can protect integrity across these stages, in diverse computing environments, enabling systems that provide strong security properties even when the underlying models remain unreliable."
+    ],
+    bio: "Umar Iqbal is an Assistant Professor in the Department of Computer Science & Engineering at Washington University in St. Louis. His research focuses on computer security and privacy, with an emphasis on agentic systems. He is a recipient of an NSF CAREER Award (2026), Caspar Bowden Runner-Up Award for Outstanding Research in Privacy Enhancing Technologies (2024), ACM IMC Best Paper Award (2023), CRA/NSF Computing Innovation Fellowship (2021), and the University of Iowa Research Excellence Award (2021).",
+    bioUrl: "https://umariqbal.com"
+  },
   {
     date: "October 30",
     speaker: "Ning Zhang",
@@ -159,6 +183,14 @@ talks.forEach((talk) => {
       paragraph.textContent = content;
       disclosure.append(paragraph);
     });
+    if (label === "Speaker bio" && talk.bioUrl) {
+      const paragraph = document.createElement("p");
+      const link = document.createElement("a");
+      link.href = talk.bioUrl;
+      link.textContent = talk.bioUrl;
+      paragraph.append("Learn more about him and his research: ", link);
+      disclosure.append(paragraph);
+    }
     detailsCell.append(disclosure);
   });
 
